@@ -10,10 +10,25 @@ function App() {
 
   return (
     <Layout className="fill">
-      <Header className="header">
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">Truncator</Menu.Item>
-        </Menu>
+      <Header
+        className="header"
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+          justifyContent: "center",
+          color: "white",
+          fontStyle: "italic",
+        }}
+      >
+        <div
+          style={{
+            fontFamily: "font-family: 'Lato', sans-serif",
+            fontWeight: "bold",
+            fontSize: "2em",
+          }}
+        >
+          TRUNCATE
+        </div>
       </Header>
       <Content>
         <div
@@ -48,9 +63,9 @@ function App() {
             <div>
               <div style={{ marginBottom: 8 }}>OUTPUT</div>
               <div style={{ display: "flex" }}>
-                <div style={{ flex: 1 }}>Original</div>
-                <div style={{ flex: 0.75 }}>8</div>
-                <div style={{ flex: 0.5 }}>4</div>
+                <div style={{ flex: 1 }}>Original string</div>
+                <div style={{ flex: 0.75 }}>8-char</div>
+                <div style={{ flex: 0.5 }}>4-char</div>
               </div>
               {text
                 .split(/\r?\n/)

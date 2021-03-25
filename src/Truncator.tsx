@@ -4,6 +4,9 @@ interface IProps {
   text: string;
 }
 
+const wordsToRemove = ["and"];
+
+
 export const Truncator: FunctionComponent<IProps> = ({ text }) => {
   const full = text;
   const char8 = TruncateTo8Characters(text);
@@ -15,7 +18,8 @@ export const Truncator: FunctionComponent<IProps> = ({ text }) => {
           color: ContainsPunctuation(full) ? "red" : undefined,
           padding: 8,
           flex: 1,
-          border: "1px solid grey",
+          borderTop: "1px solid grey",
+          borderLeft: "1px solid grey",
         }}
       >
         {full}
@@ -26,7 +30,8 @@ export const Truncator: FunctionComponent<IProps> = ({ text }) => {
           padding: 8,
           flex: 0.75,
 
-          border: "1px solid grey",
+          borderTop: "1px solid grey",
+          borderLeft: "1px solid grey",
         }}
       >
         {char8}
@@ -36,7 +41,8 @@ export const Truncator: FunctionComponent<IProps> = ({ text }) => {
           color: ContainsPunctuation(char4) ? "red" : undefined,
           padding: 8,
           flex: 0.5,
-          border: "1px solid grey",
+          borderTop: "1px solid grey",
+          borderLeft: "1px solid grey",
         }}
       >
         {char4}
@@ -99,7 +105,7 @@ function TruncateTo4Characters(str: string): string {
     }
   });
 
-  return newString.split("").slice(0,4).join("");
+  return newString.split("").slice(0, 4).join("");
 }
 
 function RemoveVowels(str: string) {
@@ -113,5 +119,3 @@ function ContainsPunctuation(str: string) {
 function RemovePunctuation(str: string) {
   return str.replace(/[^\w\s]/gi, "");
 }
-
-const wordsToRemove = ["and"];
